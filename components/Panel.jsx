@@ -6,21 +6,23 @@ import React, { Component } from 'react';
 
 export default class Panel extends Component{
 
-    constructor(){
-        super();
-        this.state = {childState: "childstate"}
+    constructor(props){
+        super(props);
+
+        this.handleChange = this.handleChange.bind(this);
+}
+
+    handleChange() {
+        this.props.onUserInput(
+            this.refs.h1input.value,
+        );
     }
 
 
-
     render(){
-
-        const tick = this.props.children;
-
-        return(
-            <div onClick={tick}>
-                <h1>Child state {this.state.childState}</h1>
-                <h2>Parent state in child {tick} </h2>
+       return(
+            <div >
+              <input onChange={this.handleChange} type="text" ref = "h1input" value={this.props.parentState}/>
             </div>
         )
     }

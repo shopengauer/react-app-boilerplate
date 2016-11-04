@@ -6,26 +6,24 @@ class App extends Component {
 
   constructor(){
     super();
-    this.state = {parentState: "parentstate"}
+    this.state = {parentState: "Java"}
+
+     this.handleUserInput = this.handleUserInput.bind(this);
   }
 
-  tick() {
-    this.setState({
-      parentState: "New parent state"
-    });
-  }
+   handleUserInput(lang) {
+        this.setState({
+             parentState: lang
+        });
+    }
+
 
 
   render(){
      return (
-
-        <div>
-          <button onClick = {()=>{this.tick()}}>Revert</button>
-          <h1>{this.state.parentState}</h1>
-          <Panel>
-            {this.state.parentState}
-          </Panel>
-
+       <div>
+         <h1>Parent state {this.state.parentState}</h1>
+         <Panel onUserInput = {this.handleUserInput} parentState = {this.state.parentState} />
         </div>
     );
   }
