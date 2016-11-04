@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import {render} from 'react-dom';
+import Panel from "../components/Panel.jsx";
 
 class App extends Component {
 
   constructor(){
     super();
-    this.state = {name: "Hello"}
+    this.state = {parentState: "parentstate"}
   }
 
   tick() {
     this.setState({
-      name: "Hello World"
+      parentState: "New parent state"
     });
   }
 
@@ -20,7 +21,11 @@ class App extends Component {
 
         <div>
           <button onClick = {()=>{this.tick()}}>Revert</button>
-          <h1>{this.state.name}</h1>
+          <h1>{this.state.parentState}</h1>
+          <Panel>
+            {this.state.parentState}
+          </Panel>
+
         </div>
     );
   }

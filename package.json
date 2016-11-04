@@ -1,5 +1,5 @@
 {
-  "name": "react-app-boilerplate",
+  "parentState": "react-app-boilerplate",
   "version": "0.1.4",
   "description": "React application boilerplate",
   "author": "Cássio Zen",
